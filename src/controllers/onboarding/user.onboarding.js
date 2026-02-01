@@ -11,7 +11,6 @@ exports.userOnboarding = async (req, res) => {
       companyPhone,
       companyDescription,
       GST,
-      companyStamp,
       accountNumber,
       IFSC,
       bankName,
@@ -21,6 +20,9 @@ exports.userOnboarding = async (req, res) => {
     const companySignature = await uploadImage(
       req.files?.companySignature?.[0]?.path,
     ) || req.body?.companySignature;
+    const companyStamp = await uploadImage(
+      req.files?.companyStamp?.[0]?.path,
+    ) || req.body?.companyStamp;
     const existingProfile = await Onboarding.findOne({ user: userId });
     if (!userId) {
       return res.status(401).json({

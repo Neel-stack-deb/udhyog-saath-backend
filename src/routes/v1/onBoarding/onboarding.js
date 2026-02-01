@@ -12,6 +12,7 @@ onBoardingRouter.post(
   uploads.fields([
     { name: "companyLogo", maxCount: 1 },
     { name: "companySignature", maxCount: 1 },
+    { name: "companyStamp", maxCount: 1 },
   ]),
   userOnboarding,
 );
