@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 exports.convertToPakka = async (req, res) => {
   try {
     const userId = req.user._id;
-    console.log("billId param:", req.params.id);
-    console.log("type:", typeof req.params.id);
     const billId = new mongoose.Types.ObjectId(req.params.id);
     const { clientAddress, clientGst, gstPercentage } = req.body;
 
